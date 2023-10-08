@@ -1,0 +1,39 @@
+.cardd{
+    background-color: rgb(41, 85, 160);
+    border-color: rgb(18, 24, 107);
+    
+    border-radius: 10px;
+    box-shadow: 25px;
+    height: 25vh;
+    width: 35vw;
+   
+    margin: 50px;
+    align-content: center;
+}
+.image{
+    height: 35vh;
+    width: 10vw;
+    border-radius:150px;
+    align-content: center;
+    margin-left: 160px;
+    margin-top: 40px;
+}
+li{
+   font-weight: 700;
+   font-family: cursive;
+    list-style-position: inside;
+    color: aliceblue;
+}
+.cardd{
+    border-radius: 20px;
+    background: #132275;
+    box-shadow: 0 6px 10px rgba(34, 15, 142, 0.777), 0 0 6px rgba(31, 20, 151, 0.727);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  padding: 14px 20px 18px 36px;
+  cursor: pointer;
+}
+
+.cardd:hover{
+     transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(48, 20, 159, 0.12), 0 4px 8px rgba(19, 16, 155, 0.06);
+}

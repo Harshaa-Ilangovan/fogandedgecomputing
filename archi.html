@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en" scroll-behavior="smooth">
+<head>
+    <link rel="stylesheet" href="intro.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to fog and edge</title>
+</head>
+<body>
+    <div id="sectionintro">
+        <video playsinline autoplay muted loop style="height:1500vh;"><source src="video/176072 (1080p).mp4" type="video/mp4"></video>
+<div class="introcard">
+    
+    
+        <div  style="margin: 20px; padding:15px;"></div>
+      <h3 class="heading"  style="font-size:30px;color:rgb(255, 255, 255); background-color:black;height:8vh;width:auto;">Architecture</h3>
+      
+      <img src="image/archi1.png" alt="Screenshot-2023-08-29-205041" border="10"/>
+      <div class="card2">
+      
+      </div>
+      <div class="card1">
+      
+      <p class="p1"><b>Data flow architectures: </b>
+These architectures are based on the direction of movement of workloads and data in the computing ecosystem. For example, workloads could be transferred from the user devices to the edge nodes or alternatively from cloud servers to the edge nodes
+</p>
+<p class="p1"><b> Control architectures:</b>
+These architectures are based on how the resources are controlled
+in the computing ecosystem. For example, a single controller or central algorithm may be
+used for managing a number of edge nodes. Alternatively, a distributed approach may be
+employed.
+
+</p>
+<p class="p1"><b> Tenancy architecture:</b>
+These architectures are based on the support provided for hosting
+multiple entities in the ecosystem. For example, either a single application or multiple ap-
+plications could be hosted on an edge node.</p>
+</div>
+<div class="card2"><a href="https://ibb.co/Qm0CFcM"><img src="image/archi2.png" alt="f1" border="0"></a></div>
+
+<div class="card3">
+<h3 style="color: rgb(255, 0, 0);">Data Flow</h3>
+<p class="p1">
+
+
+This survey identifies key data flow architectures based on how data or workloads are transferred
+within a fog/edge computing environment. This section considers three data flow architectures,
+namely, aggregation, sharing, and offloading.
+In the aggregation model, an edge node obtains data generated from multi-
+ple end devices that is then partially computed for pruning or filtering. The aim in the aggregation
+model is to reduce communication overheads, including preventing unnecessary traffic from be-
+ing transmitted beyond the edge of the network. Research on aggregation can broadly be classified
+on the basis of (i) techniques for modeling and implementing aggregation and (ii) techniques for
+improving aggregation.
+<b style="color:green"> i. Techniques for Modeling and Implementing Aggregation:</b> The underlying techniques imple-
+mented for supporting aggregation have formed an important part of Wireless Sensor Networks
+(WSNs)  and distributed data stream processing . Dense and large-scale sensor networks
+cannot route all data generated from sensors to a centralized server, but instead need to make use
+of intermediate nodes along the data path that aggregate data. This is referred to as in-network
+data aggregation . We consider WSNs to be predecessors of modern edge computing systems.
+Existing research in the area of in-network data aggregation can be classified into the following six
+ways on the basis of the underlying techniques used for modeling and implementing aggregation:</p>
+<p class="p1"><b> a. Graph-based Techniques:</b></p>
+<p class="p1">
+
+In this survey, we report two graph-based techniques that are used
+for data aggregation, namely, tree-based and directed graph-based techniques.
+Tree-based Techniques: Two examples of tree-based techniques are Data Aggregation Trees
+(DATs) and spatial index trees. DATs are commonly used for aggregation in WSNs using De-
+terministic Network Models (DNMs) or Probabilistic Network Models (PNMs). Recent research
+highlights the use of PNMs over DNMs for making realistic assumptions of lossy links in the net-
+work by using tree-based techniques for achieving load balancing. Spatial index trees are
+employed for querying within networks, but have recently been reported for aggregation. EGF is
+an energy-efficient index tree used for both data collection and aggregation. This technique
+is demonstrated to work well when the sensors are unevenly distributed. The sensors are divided
+into grids, and an index tree is first constructed. Based on the hierarchy, an EGF tree is constructed
+by merging neighboring grids. Multi-region queries are aggregated in-network and then executed.
+Directed Graph-based Techniques: The Dataflow programming model uses a directed graph and is
+used for WSN applications. Recently, a Distributed Dataflow (DDF) programming model has been
+proposed in the context of fog computing. The model is based on the MQTT protocol, supports
+the deployment of flow on multiple nodes, and assumes the heterogeneity of devices.</p>
+
+<p class="p1"><b>  b. Cluster-based Techniques:</b></p>
+<p class="p1">These techniques rely on clustering the nodes in the network. For
+example, energy efficiency could be a key criterion for clustering the nodes. One node from each
+cluster is then chosen to be a cluster head. The cluster head is responsible for local aggregation in
+each cluster and for transmitting the aggregated data to another node. Clustering techniques for
+energy-efficient data aggregation have been reported. It has been highlighted that the spatial
+correlation models of sensor nodes cannot be used accurately in complex networks. Therefore,
+Data Density Correlation Degree (DDCD) clustering has been proposed.</p>
+<p class="p1"><b>  c. Petri Net-based Techniques: </b></p>
+<p class="p1">In contrast to tree-based techniques, recent research highlights
+the use of High Level Petri Net (HLPN), referred to as RedEdge, for modeling aggregation in edge-
+based systems. Given that fog/edge computing accounts for three layers, namely, the cloud,
+the user device, and the edge layers, techniques that support heterogeneity are required. HLPN
+facilitates heterogeneity, and the model is validated by verifying satisfiability using an automated
+solver. The data aggregation strategy was explored for a smart city application and tested for a
+variety of efficiency metrics, such as latency, power, and memory consumption.</p>
+<p class="p1"><b>d. Decoupled Techniques:</b></p>
+<p class="p1">d. Decoupled Techniques: The classic aggregation techniques described above usually exhibit high
+inaccuracies when data is lost in the network. The path for routing data is determined on the basis
+of the aggregation technique. However, Synopsis Diffusion (SD) is a technique proposed for decou-
+pling routing from aggregation so they can be individually optimized to improve accuracy.
+The challenge in SD is that if one of the aggregating nodes is compromised, false aggregations
+will occur. More recently, there has been research to filter outputs from compromised nodes.
+In more recent edge-based systems, Software-Defined Networking (SDN) is employed to decouple
+computing from routing.</p>
+
+<p class="p1"><b> e. Batch Techniques:</b></p>
+<p class="p1"> e. Batch Techniques: This model of aggregation is employed in data stream processing. The data
+generated from a variety of sources is transmitted to a node where the data is grouped at time
+intervals to a batch job. Each batch job then gets executed on the node. For example, the under-
+lying techniques of Apache Flink rely on batch processing of incoming data.1 Similarly, Apache
+Spark 2 employs the concept of Discretized Streams (or D-Streams), a micro-batch processing
+technique that periodically performs batch computations over short time intervals.</p>
+<p class="p1"><b> f. Hybrid Techniques:</b></p>
+<p class="p1">These techniques combine one or more of the techniques considered above.
+For example, the Tributary-Delta approach combines tree-based and Synopsis Diffusion (SD) tech-
+niques in different regions of the network. The aim is to provide low loss rate and present
+few communication errors while maintaining or improving the overall efficiency of the network.</p>
+
+</div>
+<div class="card1">
+<p class="p1">
+<b style="color:green">i. Techniques for Improving Aggregation:</b>  Aggregation can be implemented, such that it optimizes
+different objectives in the computing environment. These objectives range from communication
+efficiency in terms of bandwidth, latency, and energy constraints (that are popularly used) to the
+actual quality of aggregation (or analytics) that is performed on the edge node. The following is a
+classification obtained after surveying existing research on techniques for improving aggregation:</p>
+<p class="p1"><b>a. Efficiency-aware Techniques:</b></p>
+<p class="p1">
+We present three categories of efficiency-aware techniques: the
+first for optimizing bandwidth, the second for minimizing latency, and the third for reducing en-
+ergy consumption.
+Bandwidth-aware: The Bandwidth Efficient Cluster-based Data Aggregation (BECDA) algorithm
+has three phases. First, distributed nodes are organized into a number of clusters. Then, each
+cluster elects a cluster head that aggregates data from within the cluster. Thereafter, each cluster
+head contributes to intra-cluster aggregation. This approach utilizes bandwidth efficiently for data
+aggregation in a network and is more efficient than predecessor methods.
+Latency-aware: Another important metric that is often considered in edge-based systems for
+aggregation includes latency. A mediation architecture has been proposed in the context
+of data services for reducing latency. In this architecture, policies for filtering data produced
+by the source based on concepts of complex event processing are proposed. In the experimental
+model, requests are serviced in near real-time with minimum latency. There is a trade-off against
+energy efficiency when attempting to minimize latency. Therefore, techniques to keep latency
+to a minimum while maintaining constant energy consumption were employed.
+Energy-aware: Research in energy efficiency of data aggregation focuses on reducing the power
+consumption of the network by making individual nodes efficient via hardware and software tech-
+niques. For example, in a multi-hop WSN, the energy consumption trade-off with aggregation
+latency has been explored under the physical interference model. A successive interference
+cancellation technique was used, and an energy-efficient minimum latency data aggregation al-
+gorithm proposed. The algorithm achieves lower bounds of latency while maintaining constant
+energy. In a mobile device based edge computing framework, RedEdge, it was observed that the
+energy consumption for data transfer was minimized. However, there is a data processing
+overhead on the edge node. Energy awareness techniques for edge nodes are an open research
+area.</p>
+<p class="p1"><b>b. Quality-aware Techniques: </b></p>
+<p class="p1"> Selective forwarding is a technique in which data from end devices
+are conditionally transmitted to a node for reducing overheads. “Quality-aware” in this context
+refers to making dynamic decisions for improving the quality of predictive analytics in selective
+forwarding. In a recent study, the optimal stopping theory was used for maximizing the qual-
+ity of aggregation without compromising the efficiency of communication. It was noted that
+instantaneous decision-making that is typically employed in selective forwarding does not ac-
+count for the historical accuracy of prediction. Quality awareness is brought into this method by
+proposing optimal vector forwarding models that account for historical quality of prediction.</p>
+<p class="p1"><b>c. Security-aware Techniques:  </b></p>
+<p class="p1">
+Aggregation occurring at an edge node between user devices and
+a public cloud needs to be secure and ensure identity privacy. An Anonymous and Secure Aggre-
+gation (ASAS) scheme in a fog environment using elliptic curve public-key cryptography,
+bilinear pairings, and a linearly holomorphic cryptosystem, namely, the Castagnos-Laguillaumie
+cryptosystem, has been developed. Another recently proposed technique includes the Light-
+weight Privacy-preserving Data Aggregation (LPDA) for fog computing. LPDA, contrary to
+ASAS, is underpinned by the homomorphic Paillier encryption, the Chinese Remainder Theorem,
+and one-way hash chain techniques. Other examples of privacy-aware techniques include those
+employed in fog computing-based vehicle-to-infrastructure data aggregation.
+</p>
+<div class="card2"><a href="https://ibb.co/nb6CJVp"><img src="image/archi3.png" alt="f2" border="0"></a></div>
+<p class="p1"><b>d. Heterogeneity-aware Techniques:</b></p>
+<p class="p1">
+Edge-based environments are inherently heterogeneous. Heterogeneity of resources here is a reference to different types of fog/edge nodes,
+including CPU architectures, combination of dedicated micro data centers (CPU-based systems),
+and traffic routing devices such as routers, base stations, and switches at the edge of the network.
+Traditional cloud techniques for data aggregation have assumed homogeneous hardware, but there
+is a need to account for heterogeneity. Some research takes heterogeneous nodes into account for
+data aggregation in WSNs. Heterogeneous edge computing is still in its infancy.
+While there is indication of the possibility to use heterogeneous resources in an ideal fog/edge
+computing model, there is little evidence of such a system that is fully implemented.
+</p> 
+
+
+<p class="p1"><b>  Sharing.</b></p>
+
+<p class= "p1">
+Contrary to the aggregation model, the sharing model is usually employed when
+the workload is shared among peers. This model aims at satisfying computing requirements of a
+workload on a mobile device without offloading it into the cloud, but onto peer devices that are
+likely to be battery-powered. This results in a more dynamic network given that devices may join
+and leave the network without notice. Practically feasible techniques proposed for cooperative task
+execution will need to be inherently energy-aware. Research in this area is generally pursued under
+the umbrella of Mobile Cloud Computing (MCC)  and Mobile Edge Computing (MEC) 
+and is a successor to peer-to-peer computing .
+Research on techniques for sharing can be classified into the following three ways</p>
+
+<p class="p1"><b style="color:green">i. Based on Control:</b></p>
+
+<p class="p1"></p>Research on control of the sharing model employed in mobile edge devices
+can be distinguished on the basis of 
+(a) centralized control and 
+(b) distributed control.</p>
+<p class="p1"><b>a. Centralized Control:</b></p>
+
+<p class="p1">In this technique, a centralized controller is used to manage the work-
+load on each edge device in a network. For example, a collection of devices at the edge is modeled
+as a Directed Acyclic Graph (DAG)-based workflow. The coordination of executing tasks resides
+with a controller in the cloud . A Software Defined Cooperative Offloading Model (SD-
+COM) was implemented based on Software Defined Networking (SDN). A controller is placed
+on a Packet Delivery Network (PDN) gateway that is used to enable cooperation between mobile
+devices connected to the controller. The controller aims at reducing traffic on the gateway and
+ensuring fairness in energy consumption between mobile devices. To deal with dynamically ar-
+riving tasks, an Online Task Scheduling (OTS) algorithm was developed.
+
+Centralized techniques are fairly common in the literature, since they are easier to implement.
+However, they suffer from scalability and single point failures as is common in most centralized
+systems.</p>
+<p class="p1"><b>b. Distributed Control:</b></p>
+
+<p class="p1">In the area of distributed control among edge devices, there seems to be
+relatively limited research. A game theoretic approach was employed as a decentralized approach
+for achieving the Nash equilibrium among cooperative devices. The concept of the Nash equi-
+librium in the sharing model is taken further to develop the Multi-item Auction (MIA) model and
+Congestion Game (COG)-based sharing.</p>
+<p class="p1"><b style="color:green">ii. Based on Adaptive Techniques:</b></p>
+
+<p class="p1">These techniques are nature-inspired and solve multi-objective
+optimization problems . There are different objectives in a system that employs a sharing
+model. For example, the sharing model at the edge can be employed in a battlefield scenario.
+In this context, latencies need to be minimum, and the energy consumption of the devices needs
+to be at optimum. Based on existing research, the following adaptive techniques are considered:</p>
+<p class="p1"><b>a. Connectivity-aware:</b></p>
+
+<p class="p1">The sharing model needs to know the connectivity between devices, for
+example, in the above battlefield scenario. A mobile device augments its computing when peer
+devices come within its communication range. Then a probabilistic model predicts whether
+a task potentially scheduled on a peer device can complete execution in time when it is in the
+coverage of the device. Connectivity-aware techniques can be single hop, multi-hop, or oppor-
+tunistic.
+Single Hop Techniques: In this technique, a device receives a list of its neighbors that form a fully
+connected network. When a workload is shared by a device, the workload will be distributed to
+other devices that are directly connected to the device.
+Multi-hop Techniques: Each device computes the shortest path to every other node in the net-
+work that can share its workload. The work is usually shared with devices that may reduce the
+overall energy footprint. The benefit of a multi-hop technique in the sharing model compared to
+single-hop techniques is that a larger pool of resources can be tapped into for more computa-
+tionally intensive workloads. A task distribution approach using a greedy algorithm to reduce the
+overall execution time of a distributed workload was recently proposed.
+Opportunistic Techniques: The device that needs to share its workload in these techniques checks
+whether its peers can execute a task when it is within the communication range. This is predicted
+via contextual profiling or historical data of how long a device was within the communication
+range of its peers. In recent research, a connectivity-aware opportunistic approach was designed
+such that:
+(i) data and code for the job can be delivered in a timely manner, 
+(ii) sequential jobs are
+executed on the same device so intermediate data does not have to be sent across the network,
+and 
+(iii) there is distributed control, and jobs are loosely coupled.
+The jobs are represented as a Directed Acyclic Graph (DAG), and the smallest component of a job is called a PNP-block,
+which is used as the unit scheduled onto a device. In the context of Internet-of-Things (IoT) for
+data-centric services, it is proposed that a collection of mobile devices forms a mobile cloud via
+opportunistic networking to service the requests of multiple IoT sensors.</p>
+
+<p class="p1"><b>b. Heterogeneity-aware: </b></p>
+
+<p class="p1">Edge devices in a mobile cloud are heterogeneous at all levels. Therefore,
+the processor architecture, operating system, and workload deployment pose several challenges
+in facilitating cooperation. There is research that assumes that the architectures of the co-
+operating edge are similar, but have different energy and memory or system utilization require-
+ments. These parameters are used for coded computation. There is recent research tackling
+heterogeneity-related issues in mobile networks. For example, a work-sharing approach named
+Honeybee was proposed in which cycles of heterogeneous mobile devices are used to serve the
+workload from a given device. The approach accounts for devices leaving/joining the system.
+Similarly, a framework based on service-oriented utility functions was proposed for managing
+heterogeneous resources that share tasks. A resource coordinator delegates tasks to resources
+in the network so parameters, such as gain and energy, are optimized using convex optimization
+techniques.</p>
+<p class="p1"><b>c. Security-aware:</b></p>
+
+<p class="p1">A technique to identify and isolate malicious attacks that could exist in a
+device used in the sharing model, referred to as HoneyBot, has been proposed. A few of the
+devices in a mobile network are chosen as HoneyBots for monitoring malicious behavior. In the
+provided experimental results, a malicious device can be identified in 20 minutes. Once a device is
+identified to be malicious, it is isolated from the network to keep the network safe.
+d. Fairness-aware:
+Fairness has been defined as a multi-objective optimization problem. The ob-
+jectives are to reduce the drain on the battery of mobile devices to prolong the network lifetime,
+and at the same time improve the performance gain of the workload shared between devices.
+The processing chain of mobile applications was modeled as a DAG and assumed that each node
+of the DAG is an embarrassingly parallel task. Each task was considered as a Multi-objective Com-
+binatorial Bottleneck Problem (M-CBP) solved using a heuristic technique.</p>
+<p class="p1">iii. Based on Cooperation: Edge devices can share workloads 
+(a) either in a less defined environment that is based on ad hoc cooperation or (b) in a more tightly coupled environment where there
+is infrastructure to facilitate cooperation.</p>
+<p class="p1"><b>a. Ad Hoc Cooperation:</b></p>
+<p class="p1">Setting up ad hoc networks for device-to-device communication is not a
+new area of research. Ad hoc cooperation has been reported for MCC in the context of the sharing
+model for the edge. There is recent research that has coined the term “transient clouds,” in
+which neighboring mobile devices form an ad hoc cloud and the underlying task management
+algorithm is based on a variant of the Hungarian method.</p>
+<p class="p1"><b>b. Infrastructure-based Cooperation:</b></p>
+<p class="p1">There is research on the federation of devices at the edge of
+the network to facilitate cooperation. This results in more tightly coupled coalitions than ad
+hoc clouds, and more cost effectiveness than dedicated micro cloud deployment.Offloading is a technique in which a server, an application, and the associated
+data are moved onto the edge of the network. This either augments the computing requirements
+of individual or a collection of user devices, or brings services in the cloud that process requests
+from devices closer to the source. Research in offloading can be differentiated in the following two
+ways, as presented in Figure 7:
+i. Offloading from User Device to Edge: This technique augments computing in user devices by
+making use of edge nodes (usually a single hop away). The two main techniques used are applica-
+tion partitioning and caching mechanisms.</p>
+
+<p class="p1"><b>a. Application Partitioning:</b></p>
+<p class="p1">One example of offloading from devices to the edge via application
+partitioning is in the GigaSight architecture in which Cloudlet VMs are used to process videos
+streamed from multiple mobile devices. The Cloudlet VM is used for denaturing, a process
+of removing user-specific content for preserving privacy. The architecture employed is presented
+as a Content Delivering Network (CDN) in reverse. In this survey, we discuss the following four
+approaches and three models used for application partitioning.
+Approaches: Four approaches are considered, namely, brute force, greedy heuristic, simulated
+annealing, and fuzzy logic.
+Brute Force: There is a study under the umbrella of ENGINE that proposes an exhaustive brute-
+force approach, in which all possible combinations of offloading plans (taking the cloud, edge
+nodes, and user devices) are explored. The plan with the minimum execution time for a task
+is then chosen. This approach simply is not a practical solution given the time needed to derive a
+plan, but instead could provide insight into the search space.
+Greedy Heuristic: ENGINE also incorporates a greedy approach that focuses on merely minimiz-
+ing the time taken for completing the execution of a task on the mobile device. An offloading
+
+Fig. 7. A classification of offloading techniques.
+plan is initially generated for each task on a mobile device, and then iteratively refined to keep
+the total monetary costs low. Similarly, FogTorch, a prototype implementation of an offloading
+framework, uses a greedy heuristic approach for deriving offloading plans.</p>
+<p class="p1"><b>Simulated Annealing:</b></p>
+
+<p class="p1">Another approach is simulated annealing, in which the search space is
+based on the utilization of fog and cloud nodes, total costs, and the completion time of an applica-
+tion to obtain an offloading plan that minimizes the costs and the completion time of the task.</p>
+<div class="card2"><a href="https://ibb.co/2qqXSvg"><img src="image/archi4.png" alt="f3" border="0"></a></div>
+<p class="p1"><b>Fuzzy Logic:</b></p>
+
+
+<p class="p1">There is research highlighting that an application from a user device can be par-
+titioned and placed on fog nodes using fuzzy logic . The goal is to improve the Quality-
+of-Experience (QoE) measured by multiple parameters such as service access rate, resource re-
+quirements, and sensitivity toward data processing delay. Fuzzy logic is used to prioritize each
+application placement request by considering the computational capabilities of the node.</p>
+<p class="p1"><b>Models: </b></p>
+
+<p class="p1">The three underlying models used for application partitioning from devices to the edge
+are graph-based, component-based, and neural network-based.</p>
+<p class="p1"><b>Graph-based:</b></p>
+
+<p class="p1">CloneCloud employs a graph-based model for the automated partitioning of an
+application. Applications running on a mobile device are partitioned and then offloaded onto
+device clones in the cloud. In the runtime, this concept translates to migrating the application
+thread onto the clone, after which it is brought back onto the original mobile device. Similarly, in
+another graph-based approach, each mobile application task to be partitioned is represented as a
+Directed Acyclic Graph (DAG). The model assumes that the execution time, migration time,
+and data that need to be migrated for each task are known a priori via profiling. Aspect-oriented
+programming is then used to obtain traces of sample benchmarks. Thereafter, a trace simulation
+is used to determine whether offloading to the edge nodes would reduce execution time.
+Component-based: In this case, the functionalities of an application (a web browser) that runs
+on a device are modeled as components that are partitioned between the edge server and the
+device. The example demonstrated is Edge Accelerated Web Browsing (EAB), in which indi-
+vidual components of a browser are partitioned across the edge and the device. The contents of a
+web page are fetched and evaluated on the edge while the EAB client merely displays the output.</p>
+<p class="p1"><b>Neural Networkbased:</b></p>
+
+<p class="p1">Recent research highlights the distribution of deep neural networks
+across user devices, edge nodes, and the cloud . The obvious benefit is that the latency of
+inferring from a deep neural network is reduced for latency-critical applications without the need
+to transmit images/video far from the source. Deep networks typically have multiple layers that
+can be distributed over different nodes. The Neurosurgeon framework models the partitioning
+between layers that will be latency- and energy-efficient from end-to-end. The framework
+predicts the energy consumption at different points of partitioning in the network and chooses a
+partition that minimizes data transfer and consumes the least energy. This research was extended
+towards distributing neural networks across geographically distributed edge nodes.</p>
+<p class="p1"><b>b. Caching Mechanisms:</b></p>
+
+<p class="p1">This is an alternative to application offloading. In this mechanism, a
+global cache is made available on an edge node that acts as a shared memory for multiple de-
+vices that need to interact. This survey identifies two such mechanisms, namely, chunking and
+aggregation, and a reverse auction gamebased mechanism.</p>
+
+<p class="p1"><b>Chunking and Aggregation:</b></p>
+<p class="p1">The multi Radio Access Technology (multi-RAT) was proposed as
+an architecture for upload caching. In this model, VMs are located at the edge of the network, and
+a user device uploads chunks of a large file onto them in parallel. Thereafter, an Aggregation
+VM combines these chunks that are then moved onto a cloud server.
+Reverse Auction Gamebased: An alternate caching mechanism based on cooperation of edge
+nodes was proposed in Reference. The users generate videos that are shared between the
+users via edge caching. The mechanism uses a reverse auction game to incentivize caching.
+ii. Offloading from the Cloud to the Edge: The direction of data flow is opposite of that considered
+above; in this case, a workload is moved from the cloud to the edge. There are three techniques
+that are identified in this survey, including server offloading, caching mechanisms, and web programming.</p>
+<p class="p1"><b>a. Server Offloading:</b></p>
+<p class="p1">A server that executes on the cloud is offloaded to the edge via either repli-
+cation or partitioning. The former is a naive approach that assumes that a server on the cloud can
+be replicated on the edge.
+Replication: Database cloning and application data replication are considered.
+Database Cloning: The database of an application may be replicated at the edge of the network
+and can be shared by different applications or users.
+Application-specific Data Replication: In contrast to database cloning, a specific application may
+choose to bring data relevant to the users to the edge for the seamless execution of the applica-
+tion. However, both database cloning and application-specific data replication assume that
+edge nodes are not storage-limited, so they may not be feasible in resource-constrained edge en-
+vironments.
+Partitioning:
+We now consider the server-partitioning parameters that are taken into account in
+offloading from the cloud to the edge. The parameters considered in partitioning are functionality-
+aware, geography-aware, and latency-aware.
+Functionality-aware: Cognitive assistance applications, for example Google Glass, are latency-
+critical applications, and the processing required for these applications cannot be provided by the
+cloud alone. Therefore, there is research on offloading the required computation onto Cloudlet
+VMs to meet the processing and latency demands of cognitive assistance applications. The
+Gabriel platform built on OpenStack++ is employed for VM management via a control VM, and
+for deploying image/face recognition functionalities using a cognitive VM on Cloudlet.
+Geography-aware: The service requests of online games, such as PokeMon Go, are typically
+transmitted from user devices to a cloud server. Instead of sending traffic to data centers, the
+ENORM framework partitions the game server and deploys it on an edge node. Geographical
+data relevant to a specific location is then made available on an edge node. Users from the relevant
+geographical region connect to the edge node and are serviced as if they were connected to the
+data center. ENORM proposes an auto-scaling mechanism to manage the workload for maximizing
+the performance of containers that are hosted on the edge by periodically monitoring resource
+utilization.
+Latency-aware: Similar to ENORM, a study by Báguena et al. aimed at partitioning the back-
+end of an application logic traditionally located on clouds to service application requests in real-
+time. In the proposed hybrid edge-assisted execution model for LTE networks, application
+requests are serviced by both the cloud and the edge networks based on latency requirements.
+This differs from the ENORM framework, in which the server is partitioned along geographical
+requirements.</p>
+<p class="p1"><b>b. Caching Mechanisms:</b></p>
+
+<p class="p1">Content popularity and multi-layer caching are identified.
+Content Popularitybased: Content-Delivery Networks (CDNs) and ISP-based caching are tech-
+niques employed to alleviate congestion in the network when downloading apps on user devices.
+However, there are significant challenges arising from the growing number of devices and apps.
+A study by Bhardwaj et al. presented the concept of caching mechanisms specific to apps on edge
+nodes, such as routers and small cells, referred to as eBoxes . This concept is called AppSa-
+chets and employs two caching strategies: based on popularity and based on the cost of caching.
+The research was validated on Internet traffic originating from all users at the Georgia Institute of
+Technology for a period of three months.
+Similarly, there is research aimed at caching data at base stations that will be employed in 5G
+networks . To achieve this, traffic is monitored to estimate content popularity using a Hadoop
+cluster. Based on the estimate, content is proactively cached at a base station.
+Multi-layer Caching: Multi-layer caching is a technique used in content delivery for Wireless
+Sensor Networks (WSNs) . The model assumes that a global cache is available at a base station
+that can cache data from data centers, and that localized caches are available on edge nodes. Two
+strategies are employed in this technique. The first is uncoded caching, in which each node is
+oblivious of the cache content of other nodes, and therefore no coordination of data is required.
+The second technique is coded caching, in which the cached content is coded such that all edge
+nodes are required to encode the content for the users.
+Other miscellaneous techniques are used to support offloading from the cloud to the edge. These
+are application-specific, and are determined by the way the application is programmed. For exam-
+ple, there is research highlighting the use of web programming that makes use of the client-edge-
+server architecture, such that some component of the client executes in edge nodes. The Spaceify
+ecosystem enables the execution of Spacelets on edge nodes that are embedded JavaScripts that
+use the edge nodes to execute tasks to service user requests . An indoor navigation use-case
+is demonstrated for validating the Spaceify concept.</p>
+<div class="card2"><a href="https://imgbb.com/"><img src="image/archi5.png" alt="f4" border="0"></a></div>
+<p class="p1"><b>2.2 Control</b></p>
+
+<p class="p1">A second method for classifying architectures for resource management in fog/edge environments
+is based on control of the resources. This survey identifies two such architectures, namely, cen-
+tralized and distributed control architectures Centralized control refers to
+the use of a single controller that makes decisions on the computations, networks, or communica-
+tion of the edge resources. On the contrary, when decision-making is distributed across the edge
+nodes, we refer to the architecture as distributed. This section extends the discussion on control
+techniques that was previously presented on sharing techniques in the survey.</p>
+<p class="p1"><b>2.2.1 Centralized</b></p>
+<p class="p1">There is a lot of research on centralized architectures, but we identify two
+centralized architectures, namely, (i) solver-based and (ii) graph matchingbased.
+
+A classification of control architectures for resource management in fog/edge computing.
+i. Solver-based: Mathematical solvers are commonly used for generating deployment and rede-
+ployment plans for scheduling workloads in grids, clusters, and clouds. Similar approaches have
+been adopted for edge environments. For example, a Least Processing Cost First (LPCF) method
+was proposed for managing task allocation in edge nodes . The method is underpinned by a
+solver aimed at minimizing processing costs and optimizing network costs. The solver is executed
+on a centralized controller for generating the assignment plan.
+ii. Graph Matchingbased: An offloading framework that accounts for device-to-device and cloud
+offloading techniques was proposed. Tasks were offloaded via a three-layer graph-matching
+algorithm that is first constructed by taking the offloading space (mobiles, edge nodes, and the
+cloud) into account. The problem of minimizing the execution time of the entire task is mapped
+onto the minimum weight-matching problem in the three-layer graph. A centralized technique
+using the Blossom algorithm was used to generate a plan for offloading.</p>
+
+<p class="p1"><b>2.2.2 Distributed.</b></p>
+<p class="p1">Three distributed architectures are identified: (i) blockchain-based, (ii) game
+theoreticbased, and (iii) genetic algorithmbased.</p>
+<p class="p1"><b>i. Blockchain-based:</b></p>
+<p class="p1">Blockchain technology is used as an underpinning technique for implement-
+ing distributed control in edge computing systems . The technique is built on the IEC 61499
+standard that is a generic standard for distributed control systems. In this model, Function Blocks,
+an abstraction of the process, was used as an atomic unit of execution. Blockchains make it pos-
+sible to create a distributed peer-to-peer network without having intermediaries, and therefore
+naturally lend themselves to the edge computing model in which nodes at the edge of the network
+can communicate without mediators. The Hyperledger Fabric, a distributed ledger platform used
+for running and enforcing user-defined smart contracts securely, was used.</p>
+<p class="p1"><b>ii. Game Theoretic Approachbased:</b></p>
+<p class="p1">The game-theoretic approach is used for achieving dis-
+tributed control for offloading tasks in the multi-channel wireless interference environment of
+mobile-edge cloud computing . It was demonstrated that finding an optimal solution via cen-
+tralized methods is NP-hard. Therefore, the game-theoretic approach is very suitable in such en-
+vironments. The Nash equilibrium was achieved for distributed offloading, while two metrics,
+namely, the number of benefiting cloud users and the system-wide computational overhead, were
+explored to validate the feasibility of the game-theoretic approach over centralized methods.</p>
+<p class="p1"><b>iii. Genetic Algorithmbased:</b></p>
+<p class="p1">Typically, in IoT-based systems, the end devices are sensors that
+send data over a network to a computing node that makes all the decisions regarding all aspects
+of networking, communication, and computation. The Edge Mesh approach aims at distributing
+decision-making across different edge nodes . For this purpose, Edge Mesh uses a computation
+overlay network along with a genetic algorithm to map a task graph onto the communication
+network to minimize energy consumption. The variables considered in the genetic algorithm are
+the Generation Gap used for crossover operations, mutation rate, and population size.
+Additionally, there are other upcoming concepts, such as sensor function virtualization (SFV),
+which can support distributed decision-making. SFV modularizes and deploys sensor functions
+
+A taxonomy of tenancy-based architectures for resource management in Fog/Edge computing.
+anywhere in an IoT network . The advantage of the SFV technique is that modules can be
+added at runtime on multiple nodes. SFV as a concept is still in its infancy and needs to be demon-
+strated in a real-world IoT testbed.</p>
+<div class="card2"><a href="https://imgbb.com/"><img src="image/archi6.png" alt="f5" border="0"></a></div>
+<p class="p1"><b>2.3 Tenancy</b></p>
+
+<p class="p1">A third method for classifying architectures for resource management in fog/edge environments
+is tenancy. The term tenancy in distributed systems refers to whether or not underlying hardware
+resources are shared between multiple entities for optimizing resource utilization and energy effi-
+ciency. A single-tenant system refers to the exclusive use of the hardware by an entity. Conversely,
+a multi-tenant system refers to multiple entities sharing the same resource. An ideal distributed
+system that is publicly accessible needs to be multi-tenant.
+The OpenFog reference architecture highlights multi-tenancy as an essential feature in fog/edge
+computing . An application server may be offloaded from the cloud to the edge and service
+users. Therefore, the entities that share the hardware resources in this context are the applications
+that are hosted on the edge, and the users that are serviced by the edge server.
+In this article, we propose a classification of tenancy in fog/edge computing in two dimensions—
+applications and users. As shown in Figure 9, the following are the four possibilities in the taxonomy:</p>
+
+<p class="p1"><b>i. Single Application, Single User (SASU):</b></p>
+<p class="p1">The edge node executes one application, and only
+the user can connect to the application. The application and the user solely use the hard-
+ware resources. The infrastructure is likely to be a private experimental test-bed.</p>
+<p class="p1"><b>ii. Single Application, Multiple User (SAMU):</b></p>
+<p class="p1">The edge node executes one application that sup-
+ports multiple users. Although the underlying hardware resources are not shared among
+applications, there is a higher degree of sharing than SASU, since multiple user requests
+are serviced by the edge node.</p>
+<p class="p1"><b>iii. Multiple Application, Single User (MASU):</b></p>
+<p class="p1">The edge node hosts multiple applications, but
+each application can only support a single user. This form of tenancy may be used for
+experimental purposes (or stress-testing the system) during the development of an ideal
+infrastructure.</p>
+<p class="p1"><b>iv. Multiple Application, Multiple User (MAMU):</b></p>
+<p class="p1">The edge node hosts multiple applications,
+and many users can connect to an individual application. This is an ideal infrastructure
+and is representative of a publicly accessible infrastructure.
+There are two techniques that support multi-tenancy, namely, system virtualization and net-
+work slicing.
+(1) System Virtualization: At the system level, virtualization is a technique employed to sup-
+port multi-tenancy. A variety of virtualization technologies are currently available, such as
+traditional virtual machines (VMs) and containers. VMs have
+a larger resource footprint than containers. Therefore, lightweight virtualization currently
+utilized in edge computing incorporates the latter. Virtualization makes it
+possible to isolate resources for individual applications, whereby users can access appli-
+cations hosted in a virtualized environment. For example, different containers of multiple
+applications may be concurrently hosted on an edge node.
+(2) Network Slicing: At the network level, multiple logical networks can be run on top of the
+physical network, so different entities with different latency and throughput requirements
+may communicate across the same physical network. The key principles of Software
+Defined Networking (SDN) and Network Functions Virtualization (NFV) form the basis
+of slicing. The ongoing European project SESAME 4 (Small
+cells coordination for Multi-tenancy and Edge services) tackles the challenges posed by
+network slicing. The network bandwidth may also be partitioned across tenants, and also
+referred to as slicing. EyeQ is a framework that supports fine-grained control of network
+bandwidth for edge-based applications. The framework provides end-to-end mini-
+mum bandwidth guarantees, thereby providing an efficient implementation for network
+performance isolation at the edge.</p>
+<button class="btn btn-secondary button " style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);" onclick="display('sectionintro')">Previous</button>
+<button class="btn btn-danger button" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);" onclick="display('sectionalg')">next</button>
+</div>
+
+
+
+        
+           
+           
+        
+</div>
+    </div>
+    <script type="text/javascript" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js">
+    </script>
+    <script>
+        var video=document.getElementById("myvideo");
+    </script>
+</body>
+</html>

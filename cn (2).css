@@ -1,0 +1,474 @@
+.cn_bg{
+    background-image: url();
+
+}
+.back{
+    background-color: rgb(255, 253, 253);
+    height: 100vh;
+    width: 100vw;
+    
+}
+.img{
+    background-image: url(https://cdn.ttgtmedia.com/rms/onlineimages/iot_g1173957610.jpg);
+    height: 50vh;
+    width: 100vw;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-right: 20px;
+    box-shadow:rgb(140, 112, 112) ;
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    border-radius: 50%;
+    
+}
+.pad{
+  padding: 50px;
+}
+.head{
+    padding: 30px;
+    align-content: center;
+    color: rgb(3, 3, 3);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 800;
+}
+.button {
+    
+    
+    border-radius: 25px;
+    border-width: 0px;
+}
+form {
+    border: 3px solid #f1f1f1;
+  }
+  
+  /* Full-width inputs */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  button {
+    background-color: #5425ff;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: hand;
+    width: 10%;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Extra style for the cancel button (red) */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+  
+  /* Center the avatar image inside this container */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  
+  /* Avatar image */
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+  }
+  
+  /* The "Forgot password" text */
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: rgb(177, 29, 142);
+    cursor: pointer;
+  }
+  
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+  * {box-sizing: border-box}
+/* Full-width input fields */
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+.button1 {
+  background-color: #159a34;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #9d2082;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #ffffff;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #928b8b;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+    width: 100%;
+  }
+}
+.card{
+    text-align: center;
+    background-color: rgb(96, 229, 241);
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding: 40px;
+    height: 80vh;
+    width: 50vw;
+    margin: 50px;
+    box-shadow: 0px 0px 10px rgba(4, 4, 4, 0.593);
+
+}
+.h-btn {
+    outline: none;
+    outline-color: initial;
+    outline-style: none;
+    outline-width: initial;
+    position: relative;
+    display: inline-block;
+    appearance: none;
+    cursor: pointer;
+    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,0);
+    font-family: "Netflix Sans",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700;
+    letter-spacing: .01em;
+    padding: 8px 20px;
+    text-align: center;
+    transition: border-color 150ms ease,color 150ms ease,background-color 150ms ease;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.icon{
+    height: 5vh;
+    width: 5vw;
+    padding: 10px;
+}
+.padding{
+    padding: 10px;
+}
+.vl {
+    border-left: 6px solid rgb(18, 201, 238);
+    height: 100px;
+  }
+  .navbar-image {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+  }
+  .backkkk{
+      background-color: rgb(66, 66, 129);
+  }.bak{
+    background-color: rgb(8, 8, 8);
+  }
+  .white{
+    color: white;
+  }
+  .container {
+    position: relative;
+    width: 50%;
+  }
+  
+  
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .container:hover .img {
+    opacity: 0.3;
+  }
+  
+  .container:hover .middle {
+    opacity: 1;
+  }
+  
+  .text {
+    background-color: #fbfbfb;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+  .ba{
+    background-color: black;
+    height: 500vh;
+
+  }
+  .heading{
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: normal;
+    font-stretch: semi-expanded;
+    color: #f1f1f1;
+    text-align: center;
+  }
+  .cardd{
+    background-color: white;
+    border-radius: 20px;
+    height: 400vh;
+    margin: 20px;
+    padding: 20px;
+  }
+  .p1{
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 500;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 5px;
+  }
+  .p2{
+    color: #ca1767;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 5px;
+    
+  }
+  .card1{
+    background-color: #e7ee92;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  .card2{
+    
+    width: 100vh;
+  
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 50%;
+
+  }
+  .card3{
+    background-color: #b7b0dc;
+    margin-left: auto;
+   margin-right: auto;
+  }
+  .card4{
+    background-color: #aee4d3;
+    margin-left: auto;
+   margin-right: auto;
+  }
+  .bodyy {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.h11 {
+    font-size: 36px;
+}
+
+#advantages {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.h22 {
+    font-size: 24px;
+    color: #333;
+}
+
+.ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}

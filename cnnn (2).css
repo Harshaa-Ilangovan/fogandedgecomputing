@@ -1,0 +1,24 @@
+.card{
+    background-color: white;
+    border-radius: 5%;
+    box-shadow: 25px;
+    height: 90vh;
+    width: 80vw;
+   
+    margin: 50px;
+    align-content: center;
+}
+.image{
+    height: 35vh;
+    width: 10vw;
+    border-radius:150px;
+    align-content: center;
+    margin-left: 160px;
+    margin-top: 40px;
+}
+li{
+   font-weight: 700;
+   font-family: cursive;
+   font-size: 40px;
+    list-style-position: inside;
+}

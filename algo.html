@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" scroll-behavior="smooth">
+<head>
+    <link rel="stylesheet" href="intro.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to fog and edge</title>
+</head>
+<body>
+    <div id="sectionintro">
+        <video playsinline autoplay muted loop style="height:400vh;"><source src="video/ink_-_67358 (1080p).mp4" type="video/mp4"></video>
+<div class="introcard">
+    <div id="sectionalg" class="model">
+        <div class="card1">
+          <h3 class="heading"  style="color:rgb(255, 255, 255);font-size:30px; background-color:black;height:8vh;width:auto;">Algorithm</h3>
+                      
+        <p class="p1"><b>ALGORITHMS </b></p>
+        
+        <p class="p1">There are several underlying algorithms used to facilitate fog/edge computing. In this section,
+        we discuss four algorithms, namely, (i) discovery—identifying edge resources within the network
+        that can be used for distributed computation, (ii) benchmarking—capturing the performance of
+        resources for decision-making to maximize the performance of deployments, (iii) load-balancing—
+        distributing workloads across resources based on different criteria such as priorities, fairness, and
+        so on, and (iv) placement—identifying resources appropriate for deploying a workload. 
+        </p>
+        <p class="p1"><b>Discovery</b> </p>
+        <p class="p1">Discovery refers to identifying edge resources so workloads from the clouds or from user de-
+        vices/sensors can be deployed on them. Typically, edge computing research assumes that edge
+        resources are discovered. However, this is not an easy task . Three techniques that use pro-
+        gramming infrastructure, handshaking protocols, and message passing are employed in discovery.
+        The first technique uses programming infrastructure such as Foglets, proposed as a mecha-
+        nism for edge resources to join a cloud-edge ecosystem. A discovery protocol was proposed
+        that matches the resource requirements of an application against available resources on the edge.
+        Nonetheless, the protocol assumes that the edge resource is publicly known or available for use.
+        
+        An additional join protocol is implemented that allows the selection of one edge node from among
+        a set of resources that have the same geographic distance from the user.
+        The second technique uses handshaking protocols. The Edge-as-a-Service (EaaS) platform
+        presents a lightweight discovery protocol for a collection of homogeneous edge resources .
+        The platform requires a master node that may be a compute available network device or a ded-
+        icated node that executes a manager process and communicates with edge nodes. The manager
+        communicates with potential edge nodes and executes a process on the edge node to run com-
+        mands. Once discovered, the Docker or LXD containers can be deployed on edge nodes.
+        The benefit of the EaaS platform is that the discovery protocol implemented is lightweight, and
+        the overhead is only a few seconds for launching, starting, stopping, or terminating containers.
+        Up to 50 containers with an online game workload similar to PokeMon Go were launched on an
+        individual edge node. However, this has been carried out in the context of a single collection of
+        edge nodes. Further research will be required to employ such a model in a federated edge environ-
+        ment. The major drawback of the EaaS platform is that it assumes a centralized master node that
+        can communicate with all potential edge nodes. The handshaking protocol assumes that the edge
+        nodes can be queried and can be made available in a common marketplace via owners. In addition,
+        the security-related implications of the master node installing a manager on the edge node and
+        executing commands on it was not considered.
+        The third technique for discovery uses message passing. In the context of a sensor network in
+        which the end devices may not necessarily have access to the Internet, there is research suggesting
+        that messages may be delivered in such a network using services offered by the nodes (referred
+        to as processing nodes) connected to the Internet [91]. A discovery method for identifying the
+        processing nodes was presented. The research assumed that a user can communicate with any
+        node in a network and submit queries, and relies on simulation-based validation.</p>
+        <p class="p1"><b>Benchmarking</b> </p>
+        
+        <p class="p1">Benchmarking is a de facto approach for capturing the performance (of entities such as memory,
+        CPU, storage, network, etc.) of a computing system [174]. Metrics relevant to the performance of
+        each entity need to be captured using standard performance evaluation tools. Typical tools used
+        for clusters or supercomputers include LINPACK [46] or NAS Parallel Benchmarks [10].
+        On the cloud, this is performed by running sample micro or macro applications that stress-tests
+        each entity to obtain a snapshot of the performance of a Virtual Machine (VM) at any given point
+        in time [49, 134]. The key challenge of benchmarking a dynamic computing system (where work-
+        loads and conditions change significantly, such as the cloud and the edge) is obtaining metrics
+        in near real-time [174, 175]. Existing benchmarking techniques for the cloud are time-consuming
+        and are not practical solutions, because they incur a lot of monetary costs. For example, accu-
+        rately benchmarking a VM with 200GB RAM and 1TB storage requires a few hours. Alternative
+        lightweight benchmarking techniques using containers have been proposed that can obtain results
+        more quickly on the cloud than traditional techniques [93, 178]. However, a few minutes are still
+        required to get results comparable to traditional benchmarking.
+        Edge benchmarking can be classified into: (i) benchmarking for evaluating functional proper-
+        ties, (ii) application-based benchmarking, and (iii) integrated benchmarking. The majority of edge
+        benchmarking research evaluates power, CPU, and memory performance of edge processors [117].
+        Benchmarking becomes more challenging in an edge environment for a number of reasons.
+        First, because edge-specific application benchmarks that capture a variety of workloads are not
+        yet available. Existing benchmarks are typically scientific applications that are less suited for the
+        edge [34]. Instead, voice-driven benchmarks [162] and Internet-of-Things (IoT) applications have
+        been used [95]. Benchmarking object stores in edge environments have also been proposed [39].
+        
+        Second, running additional time-consuming applications on resource-constrained edge nodes
+        can be challenging. Spark has been evaluated in a highly resource-constrained fog environment
+        consisting of eight Raspberry Pi single-board computers [69]. The job completion time of Spark is
+        reduced significantly with the cluster of Raspberry Pi computers, but it still requires a few minutes
+        to get results. Instead of running time-consuming applications, CloudSim [24] has been used to
+        simulate edge workloads for estimating resource usage and developing a pricing model in fog
+        computing [2]. There is a need for lightweight benchmarking tools for the edge.
+        Finally, it is not sufficient to merely benchmark edge resources, but an integrated approach for
+        benchmarking cloud and edge resources is required [51]. This will ensure that the performance
+        of all possible combinations of deployments of the application across the cloud and the edge is
+        considered for maximizing overall application performance.</p>
+        <p class="p1"><b>Load-balancing</b> </p>
+        
+        <p class="p1">As edge data centers are deployed across the network edge, the issue of distributing tasks using
+        an efficient load-balancing algorithm has gained significant attention. Existing load-balancing al-
+        gorithms at the edge employ four techniques, namely, optimization techniques, cooperative load
+        balancing, graph-based balancing, and using breadth-first search.
+        He et al. [70] proposed the Software Defined Cloud/Fog Networking (SDCFN) architecture for
+        the Internet of Vehicles (IoV). SDCFN allows centralized control for networking between vehicles
+        and helps the middleware to obtain the required information for load balancing. The study adopted
+        Particle Swarm Optimization - Constrained Optimization (PSO-CO) [136] for load-balancing to de-
+        crease latency and effectively achieve the required quality of service (QoS) for vehicles.
+        CooLoad [15] proposed a cooperative load-balancing model between fog/edge data centers to de-
+        crease service suspension time. CooLoad assigns each data center a buffer to receive requests from
+        clients. When the number of items in the buffer is above a certain threshold, incoming requests
+        to the data center are load-balanced to an adjacent data center. This work assumed that the data
+        centers were connected by a high-speed transport for effective load balancing.
+        Song et al. [130] pointed out that existing load-balancing algorithms for cloud platforms that
+        operate in a single cluster cannot be directly applied to a dynamic and peer-to-peer fog computing
+        architecture. To realize efficient load-balancing, they abstracted the fog architecture as a graph
+        model where each vertex indicates a node, and the graph edge denotes data dependency between
+        tasks. A dynamic graph-repartitioning algorithm that uses previous the load-balancing result as
+        input and minimizes the difference between the load-balancing result and the original status was
+        proposed.
+        Puthal et al. focused on developing an efficient dynamic load-balancing algorithm with an au-
+        thentication method for edge data centers [138]. Tasks were assigned to an under-utilized edge data
+        center by applying the Breadth First Search (BFS) method. Each data center was modeled using the
+        current load and the maximum capacity used to compute the current load. The authentication
+        method allows the load-balancing algorithm to find an authenticated data center.</p>
+        <p class="p1"><b> Placement</b> </p>
+        
+        <p class="p1">One challenging issue in fog/edge computing is to place incoming computation tasks on suitable
+        fog/edge resources. Placement algorithms address this issue and need to consider the availability
+        of resources in the fog/edge layer and the environmental changes . Existing techniques can
+        be classified as dynamic condition-aware techniques and iterative techniques. Iterative techniques
+        can be further divided into two spaces: iterative over resources, and iterative over the problem
+        spaces.
+        
+        Wang et al. pointed out that existing work solved placement issues in fog/edge computing under
+        static network conditions and predetermined resource demands and were not dynamic condition-
+        aware. This short-
+        coming was addressed by considering an additional set of parameters including the location and
+        preference of a user, database location, and the load on the system. A method that predicts the val-
+        ues of the parameters when service instances of a user are placed in a certain configuration was
+        proposed. The predicted values yielded an expected cost and optimal placement configuration with
+        lowest cost.predicted the completion time and price of a task based on priced timed
+        Petri nets (PTPNs) to develop a resource allocation strategy to reduce latency and maximize re-
+        source utilization in fog computing. PTPN effectively deals with the dynamic behavior of the fog
+        system to generate the performance and time cost .
+        Iterative methods over resources in the fog computing hierarchy is another effective technique.
+         proposed a placement algorithm for hierarchical fog computing that exploits
+        both conventional cloud and recent fog computing. The algorithm iterates from the fog towards
+        the cloud for placing computation modules first on the available fog nodes. In this algorithm, a
+        node is represented as a set of three attributes: the CPU, memory, and network bandwidth. Each
+        computation module expresses its requirement in the form of the three attributes. The proposed
+        solution first sorts the nodes and modules in ascending order to respectively associate the provided
+        capacity with the requirement. The algorithm then places each module on an appropriate node
+        that has enough resources, iterating from fog nodes to cloud nodes. The authors validated this
+        algorithm using iFogSim, a fog computing simulation toolkit developed by Gupta et al..proposed service placement strategies for hierarchical Fog-to-Cloud (F2C)
+        architectures in collaboration with service atomization and parallel execution. Service atomization
+        divides a large service into smaller sub-services for workload distribution between the fog and
+        the cloud. Parallel execution allows the divided sub-services to run on fog and cloud resources
+        concurrently. Based on these techniques, the study suggests following three placement strategies:
+        First-Fit (FF), Best-Fit (BF), and Best-fit with Queue (BQ). FF just selects available edge devices for
+        allocation of sub-services, and if there are not available ones, FF sends the services to the cloud.
+        BF sorts sub-services in ascending order based on the requested resources and allocates them to
+        available edge devices. If the requested amount reaches a certain threshold for edge devices, the
+        sub-services are sent to the cloud. BQ adopts BF as a basic strategy, but when edge devices are
+        congested, it determines whether to send sub-services to the cloud or to queue them to the edge
+        devices based on estimation.
+        In contrast to the above iterative method, multiple iterations can be performed over the identi-
+        fied problem space. Skarlat et al. proposed an approach called the Fog Service Placement Problem
+        (FSPP) to optimally share resources in fog nodes among IoT services [159]. The FSPP considers QoS
+        constraints such as latency or deadline requirements during placement. In the FSPP, a fog node is
+        characterized by three attributes, the CPU, memory, and storage, similar to the work of Taneja et
+        al. [166]. The FSPP suggests a proactive approach where the placement is performed periodically
+        to meet the QoS requirement. When the response time of an application reaches the upper bound,
+        the FSPP prioritizes the application and places it on a node that has enough resources. If there are
+        not enough resources, the algorithm sends the service to the nearest fog network or cloud. The
+        proposed model was evaluated on an extended iFogSim [60].</p>
+         </div>
+      </div>  
+    
+        
+</div>
+
+
+
+        
+           
+           
+        
+</div>
+    </div>
+    <script type="text/javascript" src="https://d1tgh8fmlzexmh.cloudfront.net/ccbp-static-website/js/ccbp-ui-kit.js">
+    </script>
+    <script>
+        var video=document.getElementById("myvideo");
+    </script>
+</body>
+</html>
